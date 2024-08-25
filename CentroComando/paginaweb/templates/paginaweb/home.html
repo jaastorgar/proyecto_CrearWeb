@@ -71,7 +71,16 @@
             <a href="{% url 'servicio' %}" class="cta-button">Iniciar Proyecto Futurista</a>
         </section>
     </main>
-
+    <section id="websocket-messages" class="websocket-section">
+        <h2>Mensajes en Tiempo Real</h2>
+        <div id="message-log"></div>
+        <select id="user-type-select">
+            <option value="client">Cliente</option>
+            <option value="staff">Personal</option>
+        </select>
+        <input id="message-input" type="text" placeholder="Escribe un mensaje...">
+        <button id="send-message">Enviar</button>
+    </section>
     <footer>
         <div class="footer-content">
             <div class="footer-section">

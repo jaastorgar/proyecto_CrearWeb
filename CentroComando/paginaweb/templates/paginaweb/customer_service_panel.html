@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Servicio al Cliente</title>
+    <link rel="stylesheet" href="{% static 'css/customer_service.css' %}">
+</head>
+<body>
+    <div class="customer-service-panel">
+        <h2>Panel de Servicio al Cliente</h2>
+        <div id="chat-log" class="chat-log"></div>
+        <input id="chat-message-input" type="text" placeholder="Escribe un mensaje...">
+        <button id="chat-message-submit">Enviar</button>
+    </div>
+
+    <script src="{% static 'js/customer_service_panel.js' %}"></script>
+</body>
+</html>

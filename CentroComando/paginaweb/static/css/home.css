@@ -298,3 +298,120 @@ footer {
     backdrop-filter: blur(3px);
     z-index: 0;
 }
+
+.websocket-section {
+    background: linear-gradient(145deg, rgba(0, 243, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.websocket-section h2 {
+    color: #00f3ff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+#message-log {
+    height: 250px;
+    overflow-y: auto;
+    border: 2px solid #00f3ff;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+#message-log p {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#message-log p:hover {
+    transform: translateX(5px);
+    box-shadow: -5px 0 10px rgba(0, 243, 255, 0.3);
+}
+
+#message-input {
+    width: calc(100% - 100px);
+    padding: 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#message-input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+}
+
+#send-message {
+    width: 90px;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #00f3ff, #ff00ff);
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#send-message:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+/* Estilizar la barra de desplazamiento */
+#message-log::-webkit-scrollbar {
+    width: 10px;
+}
+
+#message-log::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#message-log::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00f3ff, #ff00ff);
+    border-radius: 10px;
+}
+
+#message-log::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff00ff, #00f3ff);
+}
+
+.client-message {
+    background-color: rgba(0, 243, 255, 0.1);
+    border-left: 4px solid #00f3ff;
+}
+
+.staff-message {
+    background-color: rgba(255, 0, 255, 0.1);
+    border-left: 4px solid #ff00ff;
+}
+
+#user-type-select {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    border: 1px solid #00f3ff;
+}
