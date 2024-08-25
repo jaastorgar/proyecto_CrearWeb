@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraTech - Soluciones Digitales del Futuro</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">AstraTech</div>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#por-que-nosotros">Por qué elegirnos</a></li>
+                <li><a href="{% url 'servicio' %}" class="nav-cta">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>El Futuro Digital <span class="highlight">Comienza Aquí</span></h1>
+                <p>Soluciones tecnológicas vanguardistas para impulsar tu negocio</p>
+                <a href="{% url 'servicio' %}" class="cta-button">Inicia tu Transformación</a>
+            </div>
+        </section>
+
+        <section id="servicios" class="services-section">
+            <h2>Nuestros Servicios Innovadores</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Desarrollo Web Avanzado</h3>
+                    <p>Sitios web de última generación con tecnologías de vanguardia.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Apps del Futuro</h3>
+                    <p>Aplicaciones móviles inteligentes que revolucionan la experiencia del usuario.</p>
+                </div>
+                <div class="service-card proximamente">
+                    <div class="etiqueta-proximamente">Próximamente</div>
+                    <i class="fas fa-brain"></i>
+                    <h3>IA y Machine Learning</h3>
+                    <p>Implementación de inteligencia artificial para potenciar tu negocio.</p>
+                </div>
+            </div>
+        </section>        
+
+        <section id="por-que-nosotros" class="why-us-section">
+            <h2>¿Por qué Somos tu Aliado del Futuro?</h2>
+            <ul class="why-us-list">
+                <li><i class="fas fa-rocket"></i> Tecnología de punta en cada proyecto</li>
+                <li><i class="fas fa-lightbulb"></i> Soluciones innovadoras y personalizadas</li>
+                <li><i class="fas fa-chart-line"></i> Enfoque en resultados medibles y escalables</li>
+                <li><i class="fas fa-shield-alt"></i> Seguridad y privacidad de vanguardia</li>
+            </ul>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <h2>¿Listo para Liderar la Revolución Digital?</h2>
+            <p>Da el primer paso hacia el futuro de tu negocio.</p>
+            <a href="{% url 'servicio' %}" class="cta-button">Iniciar Proyecto Futurista</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AstraTech</h3>
+                <p>Construyendo el futuro digital, hoy</p>
+            </div>
+            <div class="footer-section">
+                <h3>Conéctate</h3>
+                <p>info@centrocomando.com</p>
+                <p>(123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos en el Futuro</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AstraTech. Innovando hacia el mañana.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

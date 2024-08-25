@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Servicio - AstraTech</title>
+    <link rel="stylesheet" href="{% static 'css/servicio.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="service-page">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <div class="neon-card">
+                    <form class="contact-form" action="{% url 'servicio' %}" method="post">
+                        {% csrf_token %}
+                        <h2>Iniciar Protocolo de Proyecto</h2>
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div class="error">{{ field.errors }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="cta-button pulse">Iniciar Transformación Digital</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'js/servicio.js' %}"></script>
+</body>
+</html>
