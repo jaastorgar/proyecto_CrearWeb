@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AstraTech - Soluciones Digitales del Futuro</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -71,16 +71,26 @@
             <a href="{% url 'servicio' %}" class="cta-button">Iniciar Proyecto Futurista</a>
         </section>
     </main>
-    <section id="websocket-messages" class="websocket-section">
-        <h2>Mensajes en Tiempo Real</h2>
-        <div id="message-log"></div>
-        <select id="user-type-select">
-            <option value="client">Cliente</option>
-            <option value="staff">Personal</option>
-        </select>
-        <input id="message-input" type="text" placeholder="Escribe un mensaje...">
-        <button id="send-message">Enviar</button>
-    </section>
+    <div id="whatsapp-chat" class="whatsapp-chat" style="display: none;">
+        <div class="chat-header">
+            <div class="chat-name">Soporte AstraTech</div>
+            <div class="chat-close" id="close-chat-button">&times;</div>
+        </div>
+        <div id="chat-name-form" class="chat-name-form">
+            <input type="text" id="user-name-input" placeholder="Ingresa tu nombre">
+            <button id="start-chat-button">Iniciar Chat</button>
+        </div>
+        <div id="chat-messages" class="chat-messages" style="display: none;"></div>
+        <div id="chat-input-area" class="chat-input-area" style="display: none;">
+            <input type="text" id="chat-message-input" placeholder="Escribe un mensaje...">
+            <button id="chat-message-submit">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <button id="open-chat-button" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+    </button>       
     <footer>
         <div class="footer-content">
             <div class="footer-section">
