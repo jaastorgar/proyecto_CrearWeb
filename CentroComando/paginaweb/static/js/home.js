@@ -6,7 +6,7 @@ function generarIdUnico() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
-function inicializarWebSocket() {
+function initializeWebSocket() {
     chatId = generarIdUnico();
     chatSocket = new WebSocket(
         'ws://' + window.location.host + '/ws/customer_chat/' + chatId + '/'
@@ -18,8 +18,6 @@ function inicializarWebSocket() {
             const chatMessages = document.getElementById('chat-messages');
             chatMessages.innerHTML += `<p><strong>${datos.sender}:</strong> ${datos.message}</p>`;
             chatMessages.scrollTop = chatMessages.scrollHeight;
-        } else {
-            console.error('Datos de mensaje incompletos:', datos);
         }
     };
 
@@ -43,7 +41,7 @@ function enviarMensaje() {
 
 function inicializarChat(nombre) {
     userName = nombre;
-    inicializarWebSocket();
+    initializeWebSocket();
     document.getElementById('chat-name-form').style.display = 'none';
     document.getElementById('chat-messages').style.display = 'block';
     document.getElementById('chat-input-area').style.display = 'flex';

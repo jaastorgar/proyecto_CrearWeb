@@ -12,6 +12,7 @@ function initializeWebSocket() {
         'ws://' + window.location.host + '/ws/customer_chat/' + chatId + '/'
     );
 
+    // Modificar la función de recepción de mensajes
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
         if (data.chatId && data.message && data.sender) {
@@ -20,37 +21,55 @@ function initializeWebSocket() {
             }
             activeChats[data.chatId].messages.push(data);
             if (data.chatId === currentChatId) {
-                updateChatLog(data);
+                const chatLog = document.getElementById('chat-log');
+                chatLog.innerHTML += `<p><strong>${data.sender}:</strong> ${data.message}</p>`;
+                chatLog.scrollTop = chatLog.scrollHeight;
             }
         }
     };
-
+    
     chatSocket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
     };
 }
 
 function addNewChat(chatId, customerName) {
-    const chatList = document.getElementById('active-chats');
-    const chatItem = document.createElement('li');
-    chatItem.textContent = customerName;
+    const chatsList = document.getElementById('active-chats-list');
+    const chatItem = document.createElement('div');
+    chatItem.className = 'chat-item';
+    chatItem.innerHTML = `
+        <span>${customerName}</span>
+        <span class="chat-id">${chatId}</span>
+    `;
     chatItem.onclick = () => switchToChat(chatId);
-    chatList.appendChild(chatItem);
+    chatsList.appendChild(chatItem);
 
-    activeChats[chatId] = {
-        customerName: customerName,
-        messages: []
-    };
+    activeChats[chatId] = { customerName, messages: [] };
+}
+
+function updateChatsList() {
+    const chatsList = document.getElementById('active-chats-list');
+    chatsList.innerHTML = '';
+    Object.keys(activeChats).forEach(chatId => {
+        addNewChat(chatId, activeChats[chatId].customerName);
+    });
+}
+
+function handleNewMessage(data) {
+    if (!activeChats[data.chatId]) {
+        addNewChat(data.chatId, data.sender);
+    }
+    activeChats[data.chatId].messages.push(data);
+    updateChatsList();
 }
 
 function switchToChat(chatId) {
-    currentChatId = chatId;
     const currentChat = activeChats[chatId];
     document.getElementById('current-customer').textContent = currentChat.customerName;
     const chatLog = document.getElementById('chat-log');
     chatLog.innerHTML = '';
     currentChat.messages.forEach(msg => {
-        updateChatLog(msg);
+        chatLog.innerHTML += `<p><strong>${msg.sender}:</strong> ${msg.message}</p>`;
     });
 }
 

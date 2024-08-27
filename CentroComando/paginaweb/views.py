@@ -40,4 +40,4 @@ def customer_service_panel(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('inicio')

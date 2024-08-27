@@ -5,7 +5,6 @@ from channels.db import database_sync_to_async
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        self.user = self.scope["user"]
         self.chat_id = self.scope['url_route']['kwargs']['chat_id']
         self.room_group_name = f'chat_{self.chat_id}'
 
@@ -25,24 +24,28 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         data = json.loads(text_data)
         message = data['message']
-        sender = self.user.username
+        sender = data['sender']
+        chat_id = data['chatId']
 
         await self.channel_layer.group_send(
             self.room_group_name,
             {
                 'type': 'chat_message',
                 'message': message,
-                'sender': sender
+                'sender': sender,
+                'chatId': chat_id
             }
         )
 
     async def chat_message(self, event):
         message = event['message']
         sender = event['sender']
+        chat_id = event['chatId']
 
         await self.send(text_data=json.dumps({
             'message': message,
-            'sender': sender
+            'sender': sender,
+            'chatId': chat_id
         }))
 
 class CustomerServiceConsumer(AsyncWebsocketConsumer):

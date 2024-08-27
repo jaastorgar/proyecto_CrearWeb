@@ -20,40 +20,24 @@
         </nav>
     </header>
 
-    <main class="customer-service-panel">
+    <div class="customer-service-panel">
         <aside class="chat-list">
             <h2>Chats Activos</h2>
-            <ul id="active-chats">
+            <ul id="active-chats-list">
                 <!-- Los chats activos se añadirán aquí dinámicamente -->
             </ul>
         </aside>
-
         <section class="chat-area">
             <div id="chat-header">
-                <h2>Chat con <span id="current-chat-name">Usuario</span></h2>
+                <h2>Chat con <span id="current-customer">Cliente</span></h2>
             </div>
             <div id="chat-log" class="chat-log"></div>
             <div class="chat-input">
                 <input id="chat-message-input" type="text" placeholder="Escribe un mensaje...">
-                <button id="chat-message-submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+                <button id="chat-message-submit">Enviar</button>
             </div>
         </section>
-
-        <aside class="chat-info">
-            <h2>Información del Chat</h2>
-            <div id="chat-details">
-                <p>ID del Chat: <span id="current-chat-id"></span></p>
-                <p>Nombre/Cuenta: <span id="current-chat-name"></span></p>
-                <p>Inicio del Chat: <span id="chat-start-time"></span></p>
-            </div>
-            <div class="quick-responses">
-                <h3>Respuestas Rápidas</h3>
-                <button class="quick-response">Hola, ¿en qué puedo ayudarte?</button>
-                <button class="quick-response">Gracias por contactarnos.</button>
-                <button class="quick-response">¿Necesitas más información?</button>
-            </div>
-        </aside>
-    </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 AstraTech. Todos los derechos reservados.</p>
