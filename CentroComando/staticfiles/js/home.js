@@ -1,66 +1,86 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const openChatButton = document.getElementById('open-chat-button');
-    const closeChatButton = document.getElementById('close-chat-button');
-    const chatWidget = document.getElementById('customer-chat');
-    const chatMessages = document.getElementById('chat-messages');
-    const messageInput = document.getElementById('customer-message-input');
-    const sendButton = document.getElementById('customer-send-message');
+let chatSocket = null;
+let userName = '';
+let chatId = null;
 
-    let chatSocket = null;
+function generarIdUnico() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
 
-    function openChat() {
-        chatWidget.style.display = 'block';
-        if (!chatSocket) {
-            connectWebSocket();
-        }
-    }
+function initializeWebSocket() {
+    chatId = generarIdUnico();
+    chatSocket = new WebSocket(
+        'ws://' + window.location.host + '/ws/customer_chat/' + chatId + '/'
+    );
 
-    function closeChat() {
-        chatWidget.style.display = 'none';
-        if (chatSocket) {
-            chatSocket.close();
-            chatSocket = null;
-        }
-    }
-
-    function connectWebSocket() {
-        chatSocket = new WebSocket('ws://' + window.location.host + '/ws/customer_chat/');
-
-        chatSocket.onopen = function(e) {
-            console.log('Conexión establecida con el servicio al cliente');
-        };
-
-        chatSocket.onmessage = function(e) {
-            const data = JSON.parse(e.data);
-            const messageElement = document.createElement('p');
-            messageElement.textContent = `${data.sender}: ${data.message}`;
-            messageElement.classList.add(data.sender === 'Cliente' ? 'customer-message' : 'staff-message');
-            chatMessages.appendChild(messageElement);
+    chatSocket.onmessage = function(e) {
+        const datos = JSON.parse(e.data);
+        if (datos.message && datos.sender) {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML += `<p><strong>${datos.sender}:</strong> ${datos.message}</p>`;
             chatMessages.scrollTop = chatMessages.scrollHeight;
-        };
-
-        chatSocket.onclose = function(e) {
-            console.error('La conexión con el servicio al cliente se ha cerrado inesperadamente');
-        };
-    }
-
-    function sendMessage() {
-        const message = messageInput.value.trim();
-        if (message && chatSocket) {
-            chatSocket.send(JSON.stringify({
-                'message': message,
-                'sender': 'Cliente'
-            }));
-            messageInput.value = '';
         }
-    }
+    };
 
-    openChatButton.addEventListener('click', openChat);
-    closeChatButton.addEventListener('click', closeChat);
-    sendButton.addEventListener('click', sendMessage);
-    messageInput.addEventListener('keypress', function(e) {
+    chatSocket.onclose = function(e) {
+        console.error('La conexión del chat se cerró inesperadamente');
+    };
+}
+
+function enviarMensaje() {
+    const inputMensaje = document.getElementById('chat-message-input');
+    const mensaje = inputMensaje.value.trim();
+    if (mensaje && chatSocket) {
+        chatSocket.send(JSON.stringify({
+            'message': mensaje,
+            'sender': userName,
+            'chatId': chatId
+        }));
+        inputMensaje.value = '';
+    }
+}
+
+function inicializarChat(nombre) {
+    userName = nombre;
+    initializeWebSocket();
+    document.getElementById('chat-name-form').style.display = 'none';
+    document.getElementById('chat-messages').style.display = 'block';
+    document.getElementById('chat-input-area').style.display = 'flex';
+    console.log(`Chat iniciado para ${userName}`);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const botonAbrirChat = document.getElementById('open-chat-button');
+    const botonCerrarChat = document.getElementById('close-chat-button');
+    const chatWhatsapp = document.getElementById('whatsapp-chat');
+    const botonEnviarMensaje = document.getElementById('chat-message-submit');
+    const inputMensaje = document.getElementById('chat-message-input');
+    const botonIniciarChat = document.getElementById('start-chat-button');
+    const inputNombreUsuario = document.getElementById('user-name-input');
+
+    botonAbrirChat.addEventListener('click', function() {
+        chatWhatsapp.style.display = 'block';
+        botonAbrirChat.style.display = 'none';
+    });
+
+    botonCerrarChat.addEventListener('click', function() {
+        chatWhatsapp.style.display = 'none';
+        botonAbrirChat.style.display = 'block';
+    });
+
+    botonEnviarMensaje.addEventListener('click', enviarMensaje);
+
+    inputMensaje.addEventListener('keyup', function(e) {
         if (e.key === 'Enter') {
-            sendMessage();
+            enviarMensaje();
+        }
+    });
+
+    botonIniciarChat.addEventListener('click', function() {
+        const nombre = inputNombreUsuario.value.trim();
+        if (nombre) {
+            inicializarChat(nombre);
+        } else {
+            alert('Por favor, ingresa tu nombre para iniciar el chat.');
         }
     });
 });
