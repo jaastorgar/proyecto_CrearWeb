@@ -7,11 +7,9 @@
     <title>AstraTech - Soluciones Digitales del Futuro</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="background-animation"></div>
-    
     <header>
         <nav>
             <div class="logo">AstraTech</div>
@@ -19,6 +17,7 @@
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#por-que-nosotros">Por qué elegirnos</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
                 <li><a href="{% url 'servicio' %}" class="nav-cta">Contacto</a></li>
             </ul>
         </nav>
@@ -53,7 +52,7 @@
                     <p>Implementación de inteligencia artificial para potenciar tu negocio.</p>
                 </div>
             </div>
-        </section>        
+        </section>
 
         <section id="por-que-nosotros" class="why-us-section">
             <h2>¿Por qué Somos tu Aliado del Futuro?</h2>
@@ -74,8 +73,9 @@
             <h2>¿Listo para Liderar la Revolución Digital?</h2>
             <p>Da el primer paso hacia el futuro de tu negocio.</p>
             <a href="{% url 'servicio' %}" class="cta-button">Iniciar Proyecto Futurista</a>
-        </section>        
+        </section>
     </main>
+
     <div id="whatsapp-chat" class="whatsapp-chat" style="display: none;">
         <div class="chat-header">
             <div class="chat-name">Soporte AstraTech</div>
@@ -95,7 +95,8 @@
     </div>
     <button id="open-chat-button" class="whatsapp-button">
         <i class="fab fa-whatsapp"></i>
-    </button>       
+    </button>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -114,7 +115,7 @@
                     <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>                
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
