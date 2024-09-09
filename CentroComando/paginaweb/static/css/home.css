@@ -382,3 +382,30 @@ footer {
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+/* Quiénes Somos Section */
+.about-us-section {
+    padding: 100px 5%;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.about-us-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.about-us-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Update X (Twitter) icon */
+.social-icons .fa-x-twitter {
+    font-size: 22px; /* Adjust size as needed */
+}
+
+.social-icons .fa-x-twitter:hover {
+    color: #1DA1F2; /* X (Twitter) brand color */
+}
