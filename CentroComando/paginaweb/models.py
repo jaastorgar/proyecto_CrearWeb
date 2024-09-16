@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
 
 class SolicitudServicio(models.Model):
     TIPO_SERVICIO_CHOICES = [
@@ -41,3 +39,15 @@ class Message(models.Model):
 
     def __str__(self):
         return f"{self.sender}: {self.content[:50]}"
+    
+
+
+class PortfolioProject(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='portfolio_images/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
