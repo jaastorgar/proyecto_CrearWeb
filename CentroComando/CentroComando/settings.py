@@ -92,8 +92,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'datosweb',
-        'USER': 'root',
-        'PASSWORD': 'Mamita10.123',
+        'USER': 'datosweb',
+        'PASSWORD': 'datosweb',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
