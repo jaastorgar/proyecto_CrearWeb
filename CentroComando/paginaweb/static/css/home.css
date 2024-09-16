@@ -285,11 +285,92 @@ footer {
     z-index: 0;
 }
 
-.whatsapp-chat {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 350px;
-    height: 450px;
-    background-color: #f0f0f0;
+/* Para dispositivos con pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .services-section,
+    .why-us-section,
+    .about-us-section,
+    .cta-section {
+        padding: 50px 5%;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .about-us-section p {
+        font-size: 16px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .etiqueta-proximamente {
+        right: -30px;
+        padding: 5px 30px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Para dispositivos con pantallas medianas (tabletas) */
+@media (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 17px;
+    }
+
+    .services-section,
+    .why-us-section,
+    .about-us-section,
+    .cta-section {
+        padding: 70px 5%;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+
+    .about-us-section p {
+        font-size: 17px;
+    }
+
+    .footer-content {
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 25px;
+    }
 }
