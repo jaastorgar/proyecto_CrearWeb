@@ -3,6 +3,8 @@ from django.contrib import messages
 from .forms import SolicitudServicioForm, LoginForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from .models import PortfolioProject
+
 # Create your views here.
 def home(request):
     return render(request, 'paginaweb/home.html')
@@ -41,3 +43,9 @@ def customer_service_panel(request):
 def logout_view(request):
     logout(request)
     return redirect('inicio')
+
+
+
+def portfolio(request):
+    projects = PortfolioProject.objects.all().order_by('-created_at')
+    return render(request, 'paginaweb/portfolio.html', {'projects': projects})

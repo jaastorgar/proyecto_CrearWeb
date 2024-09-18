@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AstraTech - Soluciones Digitales del Futuro</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="background-animation"></div>
@@ -17,7 +19,8 @@
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#por-que-nosotros">Por qué elegirnos</a></li>
-                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="portfolio.html">Portafolio</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a></li>
                 <li><a href="{% url 'servicio' %}" class="nav-cta">Contacto</a></li>
             </ul>
         </nav>
@@ -74,6 +77,8 @@
             <p>Da el primer paso hacia el futuro de tu negocio.</p>
             <a href="{% url 'servicio' %}" class="cta-button">Iniciar Proyecto Futurista</a>
         </section>
+
+        
     </main>
 
     <div id="whatsapp-chat" class="whatsapp-chat" style="display: none;">
