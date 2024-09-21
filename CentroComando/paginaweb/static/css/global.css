@@ -129,7 +129,26 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
+/* Cinta "Próximamente" ajustada más abajo */
+.ribbon {
+    position: absolute;
+    top: 40px; /* Movemos la cinta más abajo */
+    right: -10px; /* Alineación ajustada para que quede en el borde derecho */
+    background-color: var(--accent-color); /* Color de la cinta */
+    color: var(--background-color); /* Texto de la cinta */
+    padding: 8px 18px; /* Tamaño ajustado */
+    font-size: 0.75em; /* Tamaño de texto ajustado */
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(45deg); /* Rotación mantenida */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para mayor contraste */
+    z-index: 10; /* Asegura que la cinta esté visible sobre otros elementos */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Ajuste para las tarjetas que incluyen la cinta */
 .service-card {
+    position: relative;
     background-color: #1a1a2e;
     padding: 20px;
     margin: 20px;
@@ -141,6 +160,11 @@ nav ul li a:hover {
 
 .service-card:hover {
     transform: translateY(-10px);
+}
+
+.coming-soon .ribbon {
+    background-color: var(--accent-color);
+    color: var(--background-color);
 }
 
 .service-card i {
