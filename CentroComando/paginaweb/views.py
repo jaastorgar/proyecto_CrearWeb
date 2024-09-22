@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import SolicitudServicioForm, LoginForm
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
+from .forms import SolicitudServicioForm
 from .models import PortfolioProject
 
 # Create your views here.
@@ -19,32 +17,6 @@ def solicitar_servicio(request):
     else:
         form = SolicitudServicioForm()
     return render(request, 'paginaweb/servicio.html', {'form': form})
-
-def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('customer_service')
-            else:
-                form.add_error(None, "Usuario o contraseña incorrectos")
-    else:
-        form = LoginForm()
-    return render(request, 'paginaweb/login.html', {'form': form})
-
-@login_required
-def customer_service_panel(request):
-    return render(request, 'paginaweb/customer_service_panel.html')
-
-def logout_view(request):
-    logout(request)
-    return redirect('inicio')
-
-
 
 def portfolio(request):
     projects = PortfolioProject.objects.all().order_by('-created_at')

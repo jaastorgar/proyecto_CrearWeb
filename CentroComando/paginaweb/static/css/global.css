@@ -21,6 +21,14 @@ html, body {
 }
 
 /* estilos para home.html */
+.home-page .logo {
+    width: 100px; /* Ajusta el ancho del logotipo según tus necesidades */
+    height: auto; /* Mantiene la proporción del logotipo */
+    display: inline-block; /* Mantiene el logotipo alineado */
+    margin-left: 20px; /* Ajusta el margen para separarlo del borde izquierdo */
+    vertical-align: middle; /* Alinea el logotipo verticalmente con otros elementos (si es necesario) */
+}
+
 .home-page nav {
     position: sticky;
     top: 0;
