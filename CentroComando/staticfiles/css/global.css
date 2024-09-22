@@ -1,4 +1,3 @@
-/* Variables globales */
 :root {
     --primary-color: #00ffff;
     --secondary-color: #ff00ff;
@@ -8,314 +7,543 @@
 }
 
 /* Estilos generales */
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
+html, body {
     margin: 0;
     padding: 0;
-    color: var(--text-color);
+    box-sizing: border-box;
     background-color: var(--background-color);
-    overflow-x: hidden;
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
 }
 
-/* Animación de fondo */
-.background-animation {
-    position: fixed;
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* estilos para home.html */
+.home-page .logo {
+    width: 100px; /* Ajusta el ancho del logotipo según tus necesidades */
+    height: auto; /* Mantiene la proporción del logotipo */
+    display: inline-block; /* Mantiene el logotipo alineado */
+    margin-left: 20px; /* Ajusta el margen para separarlo del borde izquierdo */
+    vertical-align: middle; /* Alinea el logotipo verticalmente con otros elementos (si es necesario) */
+}
+
+.home-page nav {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    opacity: 0.1;
-    animation: backgroundShift 15s ease infinite;
-}
-
-@keyframes backgroundShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Header */
-header {
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
+    background-color: #111111;
+    padding: 20px;
     z-index: 1000;
-    background: rgba(10, 10, 31, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%;
 }
 
-.logo {
-    font-size: 24px;
+.home-page .logo {
+    font-size: 1.5em;
     font-weight: bold;
     color: var(--primary-color);
 }
 
-nav ul {
-    display: flex;
+.home-page nav ul {
     list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-nav ul li {
-    margin-left: 30px;
+.home-page nav ul li {
+    display: inline-block;
 }
 
-nav ul li a {
-    color: var(--text-color);
+.home-page nav ul li a {
     text-decoration: none;
-    font-weight: 300;
+    color: var(--text-color);
+    font-size: 1em;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: var(--primary-color);
+.home-page nav ul li a:hover {
+    color: var(--accent-color);
 }
 
-/* Footer */
-footer {
-    background: rgba(10, 10, 31, 0.9);
-    padding: 50px 5% 20px;
+/* Sección Hero */
+.home-page .hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a2e;
+    text-align: center;
+    color: var(--text-color);
 }
 
-.footer-content {
+.home-page .hero-content {
+    max-width: 800px;
+    text-align: center;
+    color: var(--text-color);
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.home-page .hero-title {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.home-page .hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.home-page .cta-button {
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.home-page .cta-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sección Servicios */
+.home-page .services-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
+}
+
+.home-page .services-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--text-color);
+}
+
+.home-page .services-grid {
     display: flex;
     justify-content: space-between;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
-.footer-section {
-    margin-bottom: 30px;
+.home-page .service-card {
+    position: relative;
+    background-color: #1a1a2e;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 45%;
+    transition: transform 0.3s ease;
 }
 
-.social-icons a {
-    color: var(--text-color);
-    margin-right: 20px;
-    font-size: 24px;
-    transition: color 0.3s ease;
+.home-page .service-card:hover {
+    transform: translateY(-10px);
 }
 
-.social-icons a:hover {
+.home-page .service-card i {
+    font-size: 2.5em;
+    margin-bottom: 15px;
     color: var(--primary-color);
 }
 
-.footer-bottom {
+.home-page .service-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Estilo para la cinta "Próximamente" dentro de home.html */
+.home-page .ribbon {
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 8px 18px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+/* Sección "Por qué elegirnos" */
+.home-page .why-choose-us-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
+}
+
+.home-page .why-choose-us-section h2 {
     text-align: center;
-    padding-top: 20px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--text-color);
 }
 
-/* Medios responsive */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 20px;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .footer-content {
-        flex-direction: column;
-    }
-}
-
-/* Estilos específicos para home.html */
-
-/* Sección héroe */
-.hero-section {
-    height: 100vh;
+.home-page .why-choose-us-grid {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.hero-content h1 {
-    font-size: 48px;
+.home-page .why-card {
+    background-color: #1a1a2e;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.home-page .why-card:hover {
+    transform: translateY(-10px);
+}
+
+.home-page .why-card i {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.home-page .why-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.home-page .why-card p {
+    color: var(--text-color);
+}
+
+/* Sección "Quienes Somos" */
+.home-page .about-us-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
+}
+
+.home-page .about-us-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--text-color);
+}
+
+.home-page .about-us-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.home-page .about-us-content p {
+    font-size: 1.2em;
+    line-height: 1.8em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+/* Footer */
+.home-page .footer-section {
+    background-color: #111111;
+    padding: 40px 20px;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.home-page .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-page .footer-column {
+    width: 30%;
     margin-bottom: 20px;
 }
 
-.highlight {
+.home-page .footer-column h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
     color: var(--primary-color);
 }
 
-.cta-button {
-    display: inline-block;
-    background: var(--accent-color);
-    color: var(--background-color);
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px;
+.home-page .footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.home-page .footer-column ul li {
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+.home-page .footer-column ul li a {
     text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
-.cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+.home-page .footer-column ul li a:hover {
+    color: var(--accent-color);
 }
 
-/* Medios responsivos para home.html */
+.home-page .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff33;
+    color: var(--text-color);
+}
+
+.home-page .footer-bottom p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 36px;
+    .home-page nav ul {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .cta-button {
-        font-size: 16px;
+    .home-page .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .home-page .services-grid,
+    .home-page .why-choose-us-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-page .service-card,
+    .home-page .why-card {
+        width: 90%;
+    }
+
+    .home-page .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-page .footer-column {
+        width: 90%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-page .hero-content h1 {
+        font-size: 1.5em;
+    }
+
+    .home-page .cta-button {
+        font-size: 1em;
         padding: 10px 20px;
     }
 }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 28px;
-    }
-
-    .cta-button {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
-}
-
-/* Estilos específicos para servicio.html */
-
-/* Sección de servicios */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.service-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 15px;
+/* estilos para servicio.html */
+.service-page .services-detail-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+.service-page .services-detail-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--text-color);
 }
 
-.service-card i {
-    font-size: 48px;
-    color: var(--primary-color);
+.service-page .services-detail-section p {
+    font-size: 1.2em;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
-.service-card.proximamente {
-    position: relative;
-    overflow: hidden;
-    opacity: 0.7;
+/* Estilos generales de servicios */
+.service-page .service-block {
+    margin-bottom: 40px;
+    text-align: center;
 }
 
-.etiqueta-proximamente {
-    position: absolute;
-    top: 20px;
-    right: -60px;
-    background: var(--secondary-color);
+.service-page .service-block h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+.service-page .service-block p {
+    font-size: 1.1em;
     color: var(--text-color);
-    padding: 5px 60px;
-    transform: rotate(45deg);
-    font-size: 0.8rem;
-    font-weight: bold;
-    box-shadow: 0 0 10px var(--secondary-color);
+    margin-top: 10px;
 }
 
-/* Medios responsivos para servicio.html */
-@media (max-width: 768px) {
-    .service-card {
-        padding: 20px;
-    }
-
-    .service-card i {
-        font-size: 36px;
-    }
+/* Sección de contacto */
+.service-page .contact-section {
+    padding: 60px 20px;
+    background-color: var(--background-color);
+    text-align: center;
 }
 
-@media (max-width: 480px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-card {
-        padding: 15px;
-    }
-
-    .service-card i {
-        font-size: 24px;
-    }
+.service-page .contact-section .container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Estilos específicos para portfolio.html */
+.service-page .contact-form {
+    margin-top: 20px;
+    background-color: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-/* Sección de portafolio */
+.service-page .form-group {
+    margin-bottom: 20px;
+}
+
+.service-page .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.service-page .form-group input,
+.service-page .form-group select,
+.service-page .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.service-page .form-group input:focus,
+.service-page .form-group select:focus,
+.service-page .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.service-page .cta-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.service-page .cta-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Estilos para portfolio.html */
+.portfolio-page {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.portfolio-section {
+    padding: 60px 20px;
+}
+
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 50px;
 }
 
 .portfolio-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    background-color: #1a1a2e;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.portfolio-item img {
+.portfolio-image {
     width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 5px;
+    margin-bottom: 15px;
+    object-fit: cover;
 }
 
-/* Medios responsivos para portfolio.html */
+.portfolio-item h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.portfolio-item p {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.portfolio-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 480px) {
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
 
-    .portfolio-item {
-        padding: 15px;
+    .portfolio-image {
+        max-width: 100%;
     }
 
-    .portfolio-item img {
-        width: 100%;
-        border-radius: 8px;
+    .portfolio-item {
+        max-width: 100%;
     }
 }
