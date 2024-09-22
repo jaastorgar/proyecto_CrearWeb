@@ -20,19 +20,17 @@
             <div class="container">
                 <div class="neon-card">
                     <h2 class="text-center mb-5">Nuestro Portafolio de Proyectos</h2>
-                    <div class="row">
+                    <div class="portfolio-grid">
                         {% for project in projects %}
-                            <div class="col-md-3 mb-4">
-                                <div class="service-card portfolio-card h-100">
-                                    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="portfolio-image">
-                                    <h3>{{ project.title }}</h3>
-                                    <p>{{ project.description|truncatechars:100 }}</p>
-                                    <button class="cta-button portfolio-button" data-bs-toggle="modal" data-bs-target="#projectModal{{ project.id }}">
-                                        Ver Detalles
-                                    </button>
-                                </div>
+                            <div class="portfolio-item">
+                                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="portfolio-image">
+                                <h3>{{ project.title }}</h3>
+                                <p>{{ project.description|truncatechars:100 }}</p>
+                                <button class="portfolio-button" data-bs-toggle="modal" data-bs-target="#projectModal{{ project.id }}">
+                                    Ver Detalles
+                                </button>
                             </div>
-                            
+
                             <!-- Modal for each project -->
                             <div class="modal fade" id="projectModal{{ project.id }}" tabindex="-1" aria-labelledby="projectModalLabel{{ project.id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
@@ -44,7 +42,6 @@
                                         <div class="modal-body">
                                             <img src="{{ project.image.url }}" class="img-fluid mb-3" alt="{{ project.title }}">
                                             <p>{{ project.description }}</p>
-                                            <!-- Add more project details here -->
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
