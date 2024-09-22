@@ -6,16 +6,22 @@
     --accent-color: #ff9900;
 }
 
-/* Estilos para la página home.html */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+/* Estilos generales */
+html, body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
 }
 
-nav {
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* estilos para home.html */
+.home-page nav {
     position: sticky;
     top: 0;
     background-color: #111111;
@@ -26,79 +32,78 @@ nav {
     align-items: center;
 }
 
-.logo {
+.home-page .logo {
     font-size: 1.5em;
     font-weight: bold;
     color: var(--primary-color);
 }
 
-nav ul {
+.home-page nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-nav ul li {
+.home-page nav ul li {
     display: inline-block;
 }
 
-nav ul li a {
+.home-page nav ul li a {
     text-decoration: none;
     color: var(--text-color);
     font-size: 1em;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+.home-page nav ul li a:hover {
     color: var(--accent-color);
 }
 
-/* Estilos de la sección Hero */
-.hero-section {
+/* Sección Hero */
+.home-page .hero-section {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1a1a2e; /* Fondo neutro, gris oscuro o azul oscuro */
+    background-color: #1a1a2e;
     text-align: center;
     color: var(--text-color);
-    overflow: hidden;
 }
 
-.hero-content {
+.home-page .hero-content {
     max-width: 800px;
     text-align: center;
     color: var(--text-color);
     animation: fadeInUp 1.5s ease-in-out;
 }
 
-.hero-title {
+.home-page .hero-title {
     font-size: 3.5em;
     margin-bottom: 20px;
-    color: var(--text-color); /* Texto blanco */
+    color: var(--text-color);
 }
 
-.hero-subtitle {
+.home-page .hero-subtitle {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: var(--text-color); /* Texto blanco */
+    color: var(--text-color);
 }
 
-.cta-button {
+.home-page .cta-button {
     padding: 15px 30px;
-    background-color: var(--primary-color); /* El color primario en los botones */
-    color: var(--background-color); /* Botón de fondo con contraste */
+    background-color: var(--primary-color);
+    color: var(--background-color);
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: var(--accent-color); /* Color de acento al hacer hover */
+.home-page .cta-button:hover {
+    background-color: var(--accent-color);
 }
 
-/* Animación */
+/* Animaciones */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -110,94 +115,89 @@ nav ul li a:hover {
     }
 }
 
-/* Estilos de la sección Servicios */
-.services-section {
+/* Sección Servicios */
+.home-page .services-section {
     padding: 60px 20px;
     background-color: var(--background-color);
 }
 
-.services-section h2 {
+.home-page .services-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5em;
     color: var(--text-color);
 }
 
-.services-grid {
+.home-page .services-grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
-/* Cinta "Próximamente" ajustada más abajo */
-.ribbon {
-    position: absolute;
-    top: 40px; /* Movemos la cinta más abajo */
-    right: -10px; /* Alineación ajustada para que quede en el borde derecho */
-    background-color: var(--accent-color); /* Color de la cinta */
-    color: var(--background-color); /* Texto de la cinta */
-    padding: 8px 18px; /* Tamaño ajustado */
-    font-size: 0.75em; /* Tamaño de texto ajustado */
-    font-weight: bold;
-    text-transform: uppercase;
-    transform: rotate(45deg); /* Rotación mantenida */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para mayor contraste */
-    z-index: 10; /* Asegura que la cinta esté visible sobre otros elementos */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-/* Ajuste para las tarjetas que incluyen la cinta */
-.service-card {
+.home-page .service-card {
     position: relative;
     background-color: #1a1a2e;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
     text-align: center;
-    width: 300px;
+    width: 45%;
     transition: transform 0.3s ease;
 }
 
-.service-card:hover {
+.home-page .service-card:hover {
     transform: translateY(-10px);
 }
 
-.coming-soon .ribbon {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-}
-
-.service-card i {
+.home-page .service-card i {
     font-size: 2.5em;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
 
-.service-card h3 {
+.home-page .service-card h3 {
     margin-bottom: 10px;
     color: var(--text-color);
 }
 
-/* Estilos de la sección Por qué elegirnos */
-.why-choose-us-section {
+/* Estilo para la cinta "Próximamente" dentro de home.html */
+.home-page .ribbon {
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 8px 18px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+/* Sección "Por qué elegirnos" */
+.home-page .why-choose-us-section {
     padding: 60px 20px;
     background-color: var(--background-color);
 }
 
-.why-choose-us-section h2 {
+.home-page .why-choose-us-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5em;
     color: var(--text-color);
 }
 
-.why-choose-us-grid {
+.home-page .why-choose-us-grid {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.why-card {
+.home-page .why-card {
     background-color: #1a1a2e;
     padding: 20px;
     margin: 20px;
@@ -207,61 +207,61 @@ nav ul li a:hover {
     transition: transform 0.3s ease;
 }
 
-.why-card:hover {
+.home-page .why-card:hover {
     transform: translateY(-10px);
 }
 
-.why-card i {
+.home-page .why-card i {
     font-size: 2.5em;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
 
-.why-card h3 {
+.home-page .why-card h3 {
     margin-bottom: 10px;
     color: var(--text-color);
 }
 
-.why-card p {
+.home-page .why-card p {
     color: var(--text-color);
 }
 
-/* Estilos de la sección Quienes Somos */
-.about-us-section {
+/* Sección "Quienes Somos" */
+.home-page .about-us-section {
     padding: 60px 20px;
     background-color: var(--background-color);
 }
 
-.about-us-section h2 {
+.home-page .about-us-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5em;
     color: var(--text-color);
 }
 
-.about-us-content {
+.home-page .about-us-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
     color: var(--text-color);
 }
 
-.about-us-content p {
+.home-page .about-us-content p {
     font-size: 1.2em;
     line-height: 1.8em;
     margin-bottom: 20px;
     color: var(--text-color);
 }
 
-/* Estilos del Footer */
-.footer-section {
+/* Footer */
+.home-page .footer-section {
     background-color: #111111;
     padding: 40px 20px;
     color: var(--text-color);
     text-align: left;
 }
 
-.footer-container {
+.home-page .footer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -269,179 +269,164 @@ nav ul li a:hover {
     margin: 0 auto;
 }
 
-.footer-column {
+.home-page .footer-column {
     width: 30%;
     margin-bottom: 20px;
 }
 
-.footer-column h3 {
+.home-page .footer-column h3 {
     font-size: 1.3em;
     margin-bottom: 20px;
     color: var(--primary-color);
 }
 
-.footer-column ul {
+.home-page .footer-column ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-column ul li {
+.home-page .footer-column ul li {
     margin-bottom: 10px;
     color: var(--text-color);
     font-size: 1em;
 }
 
-.footer-column ul li a {
+.home-page .footer-column ul li a {
     text-decoration: none;
     color: var(--primary-color);
     transition: color 0.3s ease;
 }
 
-.footer-column ul li a:hover {
+.home-page .footer-column ul li a:hover {
     color: var(--accent-color);
 }
 
-.social-links i,
-.contact-info i {
-    margin-right: 10px;
-    color: var(--primary-color);
-}
-
-.footer-bottom {
+.home-page .footer-bottom {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid #ffffff33;
     color: var(--text-color);
 }
 
-.footer-bottom p {
+.home-page .footer-bottom p {
     margin: 0;
     font-size: 1em;
 }
 
-/* Media Queries para Responsividad */
+/* Media Queries */
 @media (max-width: 768px) {
-    nav ul {
+    .home-page nav ul {
         flex-direction: column;
         gap: 10px;
     }
 
-    .hero-content h1 {
+    .home-page .hero-content h1 {
         font-size: 2em;
     }
 
-    .services-grid, .why-choose-us-grid {
+    .home-page .services-grid,
+    .home-page .why-choose-us-grid {
         flex-direction: column;
         align-items: center;
     }
 
-    .service-card, .why-card {
+    .home-page .service-card,
+    .home-page .why-card {
         width: 90%;
     }
 
-    .footer-container {
+    .home-page .footer-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .footer-column {
+    .home-page .footer-column {
         width: 90%;
         text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-content h1 {
+    .home-page .hero-content h1 {
         font-size: 1.5em;
     }
 
-    .cta-button {
+    .home-page .cta-button {
         font-size: 1em;
         padding: 10px 20px;
     }
 }
 
-/* Estilos para servicio.html */
-.services-detail-section {
+/* estilos para servicio.html */
+.service-page .services-detail-section {
     padding: 60px 20px;
     background-color: var(--background-color);
+    text-align: center;
 }
 
-.services-detail-section h2 {
+.service-page .services-detail-section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5em;
     color: var(--text-color);
 }
 
-.service-detail-card {
-    background-color: #1a1a2e;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    text-align: left;
-    position: relative;
+.service-page .services-detail-section p {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-bottom: 20px;
 }
 
-.service-detail-card i {
-    font-size: 2.5em;
-    margin-bottom: 15px;
+/* Estilos generales de servicios */
+.service-page .service-block {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.service-page .service-block h3 {
+    font-size: 2em;
     color: var(--primary-color);
 }
 
-.service-detail-card h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-.service-detail-card p {
+.service-page .service-block p {
     font-size: 1.1em;
     color: var(--text-color);
+    margin-top: 10px;
 }
 
-/* Sección de Contacto */
-.contact-section {
+/* Sección de contacto */
+.service-page .contact-section {
     padding: 60px 20px;
     background-color: var(--background-color);
     text-align: center;
 }
 
-.contact-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: var(--text-color);
-}
-
-.contact-form {
-    max-width: 600px;
+.service-page .contact-section .container {
+    max-width: 800px;
     margin: 0 auto;
-    text-align: left;
 }
 
-.form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-size: 1em;
+.service-page .contact-form {
+    margin-top: 20px;
+    background-color: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form-group select:focus {
-    outline: none;
-    border-color: var(--accent-color);
+.service-page .form-group {
+    margin-bottom: 20px;
 }
 
-.form-group label {
+.service-page .form-group label {
     display: block;
     margin-bottom: 5px;
     color: var(--text-color);
 }
 
-.form-group input, 
-.form-group textarea {
+.service-page .form-group input,
+.service-page .form-group select,
+.service-page .form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid var(--primary-color);
@@ -450,13 +435,14 @@ nav ul li a:hover {
     color: var(--text-color);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.service-page .form-group input:focus,
+.service-page .form-group select:focus,
+.service-page .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
 }
 
-button.cta-button {
+.service-page .cta-button {
     display: block;
     width: 100%;
     padding: 15px;
@@ -464,9 +450,92 @@ button.cta-button {
     color: var(--background-color);
     border: none;
     border-radius: 5px;
+    font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
-button.cta-button:hover {
+.service-page .cta-button:hover {
     background-color: var(--accent-color);
+}
+
+/* Estilos para portfolio.html */
+.portfolio-page {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.portfolio-section {
+    padding: 60px 20px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    background-color: #1a1a2e;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.portfolio-item h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.portfolio-item p {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.portfolio-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-image {
+        max-width: 100%;
+    }
+
+    .portfolio-item {
+        max-width: 100%;
+    }
 }

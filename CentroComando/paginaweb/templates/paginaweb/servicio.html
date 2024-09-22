@@ -7,70 +7,70 @@
     <title>Servicios - AstraTech</title>
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
-<body>
+<body class="service-page">
     <main>
         <section id="servicios-detalle" class="services-detail-section">
             <div class="container">
                 <h2>Nuestros Servicios</h2>
                 <p>En AstraTech ofrecemos una variedad de servicios tecnológicos que se ajustan a las necesidades de tu negocio.</p>
-                <div class="service-detail-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Creación de Páginas Web</h3>
+        
+                <!-- Servicio 1: Páginas Web -->
+                <div class="service-block">
+                    <h3><i class="fas fa-laptop-code"></i> Creación de Páginas Web</h3>
                     <p>Desarrollamos sitios web a medida, con diseño moderno y funcionalidad avanzada. Nos especializamos en la creación de páginas web responsivas, optimizadas para SEO, y con la mejor experiencia de usuario.</p>
                 </div>
-                <div class="service-detail-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Desarrollo de Aplicaciones</h3>
+        
+                <!-- Servicio 2: Desarrollo de Aplicaciones -->
+                <div class="service-block">
+                    <h3><i class="fas fa-mobile-alt"></i> Desarrollo de Aplicaciones</h3>
                     <p>Construimos aplicaciones móviles personalizadas para sistemas Android y iOS, utilizando las mejores prácticas para asegurar la escalabilidad y seguridad. Adaptamos cada app a las necesidades de tu negocio y usuario final.</p>
                 </div>
-                <div class="service-detail-card coming-soon">
-                    <div class="ribbon">Próximamente</div>
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Ciberseguridad</h3>
-                    <p>Nuestras soluciones de ciberseguridad incluyen protección avanzada contra amenazas digitales, garantizando la seguridad de tus datos e infraestructura. Próximamente disponible.</p>
-                </div>
-                <div class="service-detail-card coming-soon">
-                    <div class="ribbon">Próximamente</div>
-                    <i class="fas fa-brain"></i>
-                    <h3>IA y Machine Learning</h3>
-                    <p>Implementamos soluciones de inteligencia artificial y aprendizaje automático que permiten a tu negocio automatizar procesos y mejorar la toma de decisiones. Próximamente disponible.</p>
-                </div>
             </div>
-        </section>
+        </section>        
+
+        <!-- Nueva Sección de Contacto -->
         <section id="contacto" class="contact-section">
             <div class="container">
-                <h2>Contáctanos</h2>
-                <p>¿Interesado en nuestros servicios? Llena el formulario para más información:</p>
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">¿Interesado en nuestros servicios? Llena el formulario para más información.</p>
+
                 <form action="/send-info" method="POST" class="contact-form">
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" id="name" name="name" required>
                     </div>
+
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
                         <input type="text" id="telefono" name="telefono" required>
                     </div>
+
                     <div class="form-group">
                         <label for="tipo_servicio">Tipo de Solicitud</label>
                         <select id="tipo_servicio" name="tipo_servicio" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
                             <option value="web">Página Web</option>
                             <option value="app">Aplicación Móvil</option>
                             <option value="ambos">Página Web y Aplicación Móvil</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="message">Mensaje</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
+
                     <button type="submit" class="cta-button">Enviar Mensaje</button>
                 </form>
             </div>
         </section>
     </main>
-    <script src="{% static 'js/global.js' %}"></script> 
+
+    <script src="{% static 'js/global.js' %}"></script>
 </body>
 </html>
